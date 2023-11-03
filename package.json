@@ -1,12 +1,14 @@
 {
-  "name": "test-app",
+  "name": "static-nextjs-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean-prod": "rm -rf .next; rm -rf out; rm -rf node_modules",
+    "prod-build": "yarn clean-prod; yarn; yarn build"
   },
   "dependencies": {
     "react": "^18",
