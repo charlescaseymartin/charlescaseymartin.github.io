@@ -3,7 +3,7 @@ WORKDIR /portfolio
 COPY package.json yarn.lock ./
 RUN yarn
 COPY . .
-RUN yarn build
+RUN yarn next:build
 RUN ls -la
 
 
