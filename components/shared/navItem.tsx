@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 type NavItemType = {
   href: string;
@@ -8,7 +8,7 @@ type NavItemType = {
 export default function NavItem({ href, text }: NavItemType) {
   return (
     <li>
-      <Link href={href} className="duration-300 font-medium ease-linear hover:text-primary py-3">
+      <Link href={href} className='duration-300 font-medium ease-linear hover:text-primary py-3'>
         {text}
       </Link>
     </li>
