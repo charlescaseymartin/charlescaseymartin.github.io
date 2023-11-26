@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
-import Navbar from '@/components/elements/navbar'
-import ThemeWrapper from '@/components/shared/themeWrapper'
 import './globals.css'
+import Navbar from '@/components/elements/navbar'
 import Footer from '@/components/elements/footer'
 
 export const metadata: Metadata = {
@@ -16,7 +15,6 @@ export default function RootLayout({
 }) {
 
   return (
-    <ThemeWrapper>
       <html lang='en'>
         <body className={`overflow-hidden overflow-y-auto bg-body`}>
           <Navbar />
@@ -24,6 +22,5 @@ export default function RootLayout({
           <Footer />
         </body>
       </html>
-    </ThemeWrapper>
   )
 }
