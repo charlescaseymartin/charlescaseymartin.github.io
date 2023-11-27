@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { useContext, useEffect, useState } from 'react';
 import NavItem from '../shared/navItem';
 import Container from '../shared/container';
 import BtnLink, { BtnLinkVariant } from '../shared/btnLink';
 import Logo from '../shared/logo';
+import { AppThemeContext } from '@/app/context/themeContext';
 
 type NavbarLinkBaseType = {
   text: string;
@@ -26,6 +26,7 @@ export default function Navbar() {
     { text: 'Blog', href: '/blog' },
   ]
   const [windowDoc, setWindowDoc] = useState<Document>();
+  const themeContext = useContext(AppThemeContext);
   const appThemeStorgeItem = 'appTheme';
 
 
@@ -34,7 +35,8 @@ export default function Navbar() {
   const onToggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     const appTheme = localStorage.getItem(appThemeStorgeItem);
-    if (windowDoc) {
+    if (windowDoc && themeContext) {
+      const { toggleDarkMode } = themeContext;
       const docElement = windowDoc.documentElement;
       const themeSwitch = document.querySelector('[data-switch-theme]') as HTMLButtonElement;
       themeSwitch.children[0].classList.toggle('hidden');
@@ -43,18 +45,22 @@ export default function Navbar() {
       if (appTheme && appTheme === AppThemeModes.light) {
         docElement.classList.toggle(AppThemeModes.dark);
         localStorage.setItem(appThemeStorgeItem, AppThemeModes.dark);
+        toggleDarkMode(true);
       }
       if (appTheme && appTheme === AppThemeModes.dark) {
         docElement.classList.toggle(AppThemeModes.dark);
         localStorage.setItem(appThemeStorgeItem, AppThemeModes.light);
+        toggleDarkMode(false);
       }
       if (!appTheme && docElement.classList.contains(AppThemeModes.dark)) {
         docElement.classList.toggle(AppThemeModes.dark);
         localStorage.setItem(appThemeStorgeItem, AppThemeModes.light);
+        toggleDarkMode(false);
       }
       if (!appTheme && !docElement.classList.contains(AppThemeModes.light)) {
         docElement.classList.toggle(AppThemeModes.light);
         localStorage.setItem(appThemeStorgeItem, AppThemeModes.dark);
+        toggleDarkMode(true);
       }
     }
   }

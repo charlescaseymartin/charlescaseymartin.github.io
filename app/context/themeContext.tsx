@@ -1,26 +1,23 @@
-import { createContext, useEffect, useState } from 'react'
+'use client';
 
-enum ThemeOption {
-  light = 'light',
-  dark = 'dark',
-}
+import { createContext, useEffect, useState } from 'react'
 
 type ThemeContextProviderType = {
   children: JSX.Element | JSX.Element[];
 }
 
 type AppThemeContextType = {
-  theme: ThemeOption;
-  toggleTheme: (value: ThemeOption) => void;
+  isDarkMode: boolean;
+  toggleDarkMode: (value: boolean) => void;
 } | undefined;
 
-const AppThemeContext = createContext<AppThemeContextType>(undefined);
+export const AppThemeContext = createContext<AppThemeContextType>(undefined);
 
 export function ThemeContextProvider({ children }: ThemeContextProviderType) {
-  const [theme, setTheme] = useState(ThemeOption.light);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const toggleTheme = (newTheme: ThemeOption) => {
-    setTheme(newTheme);
+  const toggleDarkMode = (themeMode: boolean) => {
+    setIsDarkMode(themeMode);
   }
 
   useEffect(() => {
@@ -32,34 +29,19 @@ export function ThemeContextProvider({ children }: ThemeContextProviderType) {
       docElement.classList.add('dark');
       themeSwitchBtn.children[0].classList.add('hidden');
       themeSwitchBtn.children[1].classList.remove('hidden');
+      setIsDarkMode(true);
     } else {
       docElement.classList.remove('dark');
       themeSwitchBtn.children[0].classList.remove('hidden');
       themeSwitchBtn.children[1].classList.add('hidden');
+      setIsDarkMode(false);
     }
   }, [])
 
-  useEffect(() => console.log({ theme }), [theme])
-
-  useEffect(() => {
-    // const footer = document.querySelector('[data-footer]');
-    console.log({ footer: theme })
-    // if (footer) {
-    //   console.log({ footer })
-    //   if (theme) {
-    //     footer.classList.add('from-gray-900');
-    //     footer.classList.remove('from-gray-100');
-    //     footer.classList.remove('to-gray-200');
-    //   } else {
-    //     footer.classList.remove('from-gray-900');
-    //     footer.classList.add('from-gray-100');
-    //     footer.classList.add('to-gray-200');
-    //   }
-    // }
-  }, [theme])
+  useEffect(() => console.log({ isDarkMode }), [isDarkMode])
 
   return (
-    <AppThemeContext.Provider value={{ theme, toggleTheme }}>
+    <AppThemeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
       {children}
     </AppThemeContext.Provider>
   )

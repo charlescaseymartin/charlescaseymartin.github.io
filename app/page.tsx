@@ -1,4 +1,6 @@
 import { Metadata } from 'next';
+import Hero from '@/components/sections/home/hero';
+import Services from '@/components/sections/home/services';
 
 export const metadata: Metadata = {
   title: 'Home | Charles-Casey Martin Web Solutions',
@@ -8,7 +10,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      <div>Home Page</div>
+      <Hero />
+      <Services />
     </main>
   )
 }

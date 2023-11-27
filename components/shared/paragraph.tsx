@@ -1,7 +1,7 @@
 
 type ParagraphType = {
   children: JSX.Element | JSX.Element[] | string;
-  className: string;
+  className?: string;
 }
 
 export default function Paragraph({ children, className = '' }: ParagraphType) {

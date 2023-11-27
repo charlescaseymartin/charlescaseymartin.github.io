@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '@/components/elements/navbar'
 import Footer from '@/components/elements/footer'
+import { ThemeContextProvider } from './context/themeContext'
 
 export const metadata: Metadata = {
   title: 'Charles-Casey Martin Web Solutions',
@@ -15,6 +16,7 @@ export default function RootLayout({
 }) {
 
   return (
+    <ThemeContextProvider>
       <html lang='en'>
         <body className={`overflow-hidden overflow-y-auto bg-body`}>
           <Navbar />
@@ -22,5 +24,6 @@ export default function RootLayout({
           <Footer />
         </body>
       </html>
+    </ThemeContextProvider>
   )
 }

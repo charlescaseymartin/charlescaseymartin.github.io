@@ -1,9 +1,13 @@
+'use client';
+
+import { useContext, useEffect } from 'react';
 import Link from 'next/link';
 import GroupFooterNav from '../blocks/groupFooterNav';
 import Container from '../shared/container';
 import FooterNav, { FooterNavItem } from '../shared/footerNav';
 import Paragraph from '../shared/paragraph';
 import Logo from '../shared/logo';
+import { AppThemeContext } from '@/app/context/themeContext';
 
 
 const footerNav1: FooterNavItem[] = [
@@ -35,6 +39,24 @@ const footerLegal: FooterNavItem[] = [
 
 
 export default function Footer() {
+  const themeContext = useContext(AppThemeContext);
+  const isDarkMode = themeContext && themeContext.isDarkMode;
+
+  useEffect(() => {
+    const footer = document.querySelector('[data-footer]');
+    if (footer) {
+      if (isDarkMode) {
+        footer.classList.add('from-gray-900');
+        footer.classList.remove('from-gray-100');
+        footer.classList.remove('to-gray-200');
+      } else {
+        footer.classList.remove('from-gray-900');
+        footer.classList.add('from-gray-100');
+        footer.classList.add('to-gray-200');
+      }
+    }
+  }, [isDarkMode])
+
   return (
     <footer data-footer className='relative mt-16 bg-gradient-to-tr from-gray-100 to-gray-200 pt-28 rounded-t-3xl md:mt-20'>
       <div className='absolute right-0 top-0 h-full w-full flex justify-end'>
