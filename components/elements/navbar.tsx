@@ -114,7 +114,7 @@ export default function Navbar() {
             </ul>
 
             <div className='lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-box-bg lg:border-0 px-6 lg:px-0'>
-              <BtnLink text='Get in Contact' href='/contact' className='flex justify-center w-full sm:w-max' variant={BtnLinkVariant.primary} />
+              <BtnLink text='Contact Me' href='/contact' className='flex justify-center w-full sm:w-max' variant={BtnLinkVariant.primary} />
             </div>
           </div>
 

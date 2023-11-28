@@ -7,7 +7,7 @@ export enum ButtonVariants {
 type ButtonType = {
   children: JSX.Element | JSX.Element[];
   variant: ButtonVariants;
-  className: string;
+  className?: string;
 }
 
 export default function Button({ children, variant, className }: ButtonType) {

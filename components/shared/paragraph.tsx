@@ -1,6 +1,6 @@
 
 type ParagraphType = {
-  children: JSX.Element | JSX.Element[] | string;
+  children: JSX.Element | JSX.Element[] | string | (JSX.Element | string)[];
   className?: string;
 }
 

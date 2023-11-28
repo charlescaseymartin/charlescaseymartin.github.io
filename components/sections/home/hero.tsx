@@ -38,7 +38,7 @@ export default function Hero() {
                 <input type='email' name='email' id='email-user' placeholder='johndoe@gmail.com' className='w-full py-3 outline-none bg-transparent' />
                 <Button variant={ButtonVariants.primary} className={'min-w-max text-white'}>
                   <span className='hidden sm:flex relative z-[5]'>
-                    Get Started
+                    Contact Me
                   </span>
                   <span className='flex sm:hidden relative z-[5]'>
                     <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth='1.5' stroke='currentColor' className='w-5 h-5'>
