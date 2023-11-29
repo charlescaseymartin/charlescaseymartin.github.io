@@ -1,6 +1,7 @@
 import Container from '@/components/shared/container';
-import Button, { ButtonVariants } from '@/components/shared/button';
+import Button from '@/components/shared/button';
 import Paragraph from '@/components/shared/paragraph';
+import ColourfulText from '@/components/shared/colourfulText';
 
 
 export default function Hero() {
@@ -8,23 +9,30 @@ export default function Hero() {
     <section className='relative pt-32 lg:pt-36'>
       <Container className={'flex flex-col lg:flex-row gap-10 lg:gap-12'}>
         <div className='absolute w-full lg:w-1/2 inset-y-0 lg:right-0 '>
-          <span className='absolute -left-6 md:left-4 top-24 lg:top-28 w-24 h-24 rotate-90 skew-x-12 rounded-3xl bg-green-400 blur-xl opacity-60 lg:opacity-95 lg:block hidden'></span>
-          <span className='absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-80'></span>
+          <span className='absolute -left-6 md:left-4 top-24 lg:top-28 w-24 h-24 rotate-90 skew-x-12 rounded-3xl bg-green-400 blur-xl opacity-60 lg:opacity-95 lg:block hidden' />
+          <span className='absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-80' />
         </div>
-        <span className='w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-primary to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90'></span>
+        <span className='w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-primary to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90' />
         <div className='relative flex flex-col items-center text-center lg:text-left lg:py-7 xl:py-8 lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2'>
 
           <h1 className='text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight font-bold text-heading-1'>
-            Social Media
-            <span className='mx-4 text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600'>
-              Marketing
-            </span>
-            is the Best Ever.
+            Transform Your
+            <br />
+            Online Presence
+            <br />
+            with Expert
+            <ColourfulText text='Web Development' />
+            <br />
+            and
+            <ColourfulText text='Design' />
           </h1>
-          
+
           <Paragraph className='mt-8'>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores repellat perspiciatis aspernatur quis voluptatum porro incidunt,
-            libero sequi quos eos velit
+            Welcome to the next level of digital success!
+            <br />
+            My web development and web design skills are here to create an exceptional online experience for your business.
+            <br />
+            From stunning web designs to seamless web development, I offer everything you need to make a powerful impact in the digital realm.
           </Paragraph>
 
           <div className='mt-10  w-full flex max-w-md mx-auto lg:mx-0'>
@@ -36,7 +44,7 @@ export default function Hero() {
                   </svg>
                 </span>
                 <input type='email' name='email' id='email-user' placeholder='johndoe@gmail.com' className='w-full py-3 outline-none bg-transparent' />
-                <Button variant={ButtonVariants.primary} className={'min-w-max text-white'}>
+                <Button className={'min-w-max text-white'}>
                   <span className='hidden sm:flex relative z-[5]'>
                     Contact Me
                   </span>
@@ -52,7 +60,7 @@ export default function Hero() {
         </div>
 
         <div className='flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl'>
-          <img src='/images/image1.webp' alt='Hero image' width='2350' height='2359' className='lg:absolute lg:w-full lg:h-full rounded-3xl object-cover lg:max-h-none max-h-96' />
+          <img src='/images/profile-image.jpg' alt='Hero image' width='2350' height='2359' className='lg:absolute lg:w-full lg:h-full rounded-3xl object-cover lg:max-h-none max-h-96' />
         </div>
       </Container>
     </section>

@@ -61,22 +61,20 @@ export default function Footer() {
     <footer data-footer className='relative mt-16 bg-gradient-to-tr from-gray-100 to-gray-200 pt-28 rounded-t-3xl md:mt-20'>
       <div className='absolute right-0 top-0 h-full w-full flex justify-end'>
         <div className='w-28 h-28 overflow-hidden flex rounded-xl relative blur-2xl'>
-          <span className='absolute w-16 h-16 -top-1 -right-1 bg-green-500 rounded-md rotate-45'></span>
-          <span className='absolute w-16 h-16 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45'></span>
-          <span className='absolute w-16 h-16 -bottom-1 -left-1 bg-primary rounded-md rotate-45'></span>
+          <span className='absolute w-16 h-16 -top-1 -right-1 bg-green-500 rounded-md rotate-45'/>
+          <span className='absolute w-16 h-16 -bottom-1 -left-1 bg-primary rounded-md rotate-45'/>
         </div>
       </div>
 
       <div className='absolute left-0 bottom-0 h-full w-full flex items-end'>
         <div className='w-28 h-28 overflow-hidden flex rounded-xl relative blur-2xl'>
-          <span className='absolute w-16 h-16 -top-1 -right-1 bg-green-500 rounded-md rotate-45'></span>
-          <span className='absolute w-16 h-16 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45'></span>
-          <span className='absolute w-16 h-16 -bottom-1 -left-1 bg-primary rounded-md rotate-45'></span>
+          <span className='absolute w-16 h-16 -top-1 -right-1 bg-green-500 rounded-md rotate-45'/>
+          <span className='absolute w-16 h-16 -bottom-1 -left-1 bg-primary rounded-md rotate-45'/>
         </div>
       </div>
       <Container className='pb-8 relative overflow-hidden'>
 
-        <span className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 blur-2xl opacity-20 w-24 h-16 sm:w-48 sm:h-36 rounded-full rotate-12 skew-x-6 bg-primary'></span>
+        <span className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 blur-2xl opacity-20 w-24 h-16 sm:w-48 sm:h-36 rounded-full rotate-12 skew-x-6 bg-primary'/>
         <div className='grid grid-cols-2 lg:grid-cols-3 lg:items-stretch gap-8 relative'>
           <div className='col-span-2 lg:col-span-1 h-auto flex flex-col'>
             <div className='h-full'>
@@ -133,7 +131,7 @@ export default function Footer() {
         <Container>
           <div className='flex justify-center items-center md:text-lg text-heading-3'>
             <div>
-              &copy; <span id='year'></span> charlescaseymartin. All right reserved
+              &copy; <span id='year'/> charlescaseymartin. All right reserved
             </div>
           </div>
         </Container>

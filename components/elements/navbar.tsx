@@ -77,14 +77,12 @@ export default function Navbar() {
       mobileMenuBtn.setAttribute('data-open-nav', 'true');
       navOverlay.setAttribute('data-is-visible', 'true');
       navbar.style.height = `${navbar.scrollHeight}px`;
-      if (windowDoc) windowDoc.body.classList.toggle('!overflow-y-hidden');
     }
 
     if (mobileNavIsOpen) {
       mobileMenuBtn.setAttribute('data-open-nav', 'false');
       navOverlay.setAttribute('data-is-visible', 'false');
       navbar.style.height = '0px';
-      if (windowDoc) windowDoc.body.classList.toggle('!overflow-y-hidden');
     }
   }
 
@@ -92,11 +90,10 @@ export default function Navbar() {
     const mobileNavBtn = document.querySelector('[data-toggle-nav]') as HTMLButtonElement;
     const mobileNavOverlay = document.querySelector('[data-nav-overlay]') as HTMLDivElement;
     const mobileNav = document.querySelector('[data-navbar]') as HTMLDivElement;
-    if(mobileNav && mobileNav.style.height === '0px') return;
-    if(mobileNav) mobileNav.style.height = '0px';
-    if(mobileNavBtn) mobileNavBtn.setAttribute('data-open-nav', 'false');
-    if(mobileNavOverlay) mobileNavOverlay.setAttribute('data-is-visible', 'false');
-    if(windowDoc) windowDoc.body.classList.toggle('!overflow-y-hidden');
+    if (mobileNav && mobileNav.style.height === '0px') return;
+    if (mobileNav) mobileNav.style.height = '0px';
+    if (mobileNavBtn) mobileNavBtn.setAttribute('data-open-nav', 'false');
+    if (mobileNavOverlay) mobileNavOverlay.setAttribute('data-is-visible', 'false');
   }
 
   return (
@@ -107,15 +104,12 @@ export default function Navbar() {
             <Logo />
           </div>
 
-          <div data-nav-overlay onClick={closeMobileNavbar} aria-hidden='true' className='fixed hidden inset-0 lg:!hidden bg-box-bg bg-opacity-50 backdrop-filter backdrop-blur-xl'></div>
+          <div data-nav-overlay onClick={closeMobileNavbar} aria-hidden='true' className='fixed hidden inset-0 lg:!hidden bg-box-bg bg-opacity-50 backdrop-filter backdrop-blur-xl' />
           <div data-navbar onClick={closeMobileNavbar} className='flex h-0 overflow-hidden lg:!h-auto lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 bg-body lg:bg-transparent border-x border-x-box-border lg:border-x-0'>
             <ul className='border-t border-box-border lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-8 text-lg text-heading-2 w-full lg:justify-center lg:items-center'>
               {routes.map((route, idx) => <NavItem key={`${idx}-${route.text}`} {...route} />)}
             </ul>
-
-            <div className='lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-box-bg lg:border-0 px-6 lg:px-0'>
-              <BtnLink text='Contact Me' href='/contact' className='flex justify-center w-full sm:w-max' variant={BtnLinkVariant.primary} />
-            </div>
+            <BtnLink text='Contact Me' href='/contact' className='flex justify-center w-full sm:w-max' />
           </div>
 
 
@@ -131,9 +125,9 @@ export default function Navbar() {
             </button>
 
             <button data-toggle-nav data-open-nav='false' onClick={onToggleMobileNavbar} className='lg:hidden lg:invisible outline-none w-7 h-auto flex flex-col relative'>
-              <span id='line1' className='w-6 h-0.5 rounded-full bg-heading-2 transition-all duration-300 ease-linear'></span>
-              <span id='line2' className='w-6 origin-center  mt-1 h-0.5 rounded-ful bg-heading-2 transition-all duration-300 ease-linear'></span>
-              <span id='line3' className='w-6 mt-1 h-0.5 rounded-ful bg-heading-2 transition-all duration-300 ease-linear'></span>
+              <span id='line1' className='w-6 h-0.5 rounded-full bg-heading-2 transition-all duration-300 ease-linear' />
+              <span id='line2' className='w-6 origin-center  mt-1 h-0.5 rounded-ful bg-heading-2 transition-all duration-300 ease-linear' />
+              <span id='line3' className='w-6 mt-1 h-0.5 rounded-ful bg-heading-2 transition-all duration-300 ease-linear' />
               <span className='sr-only'>togglenav</span>
             </button>
           </div>
