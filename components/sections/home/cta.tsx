@@ -39,13 +39,13 @@ export default function CTA() {
             </h1>
 
             <Paragraph className={'pt-10'}>
-              Contact us today for a free consultation and let us turn your vision into reality.
+              Contact me today for a free consultation and let me turn your vision into reality.
             </Paragraph>
 
             <div className='mx-auto max-w-md sm:max-w-xl pt-10'>
               <Button>
                 <span className='text-white relative z-[5]'>
-                  Get In Touch
+                  Contact Me
                 </span>
               </Button>
             </div>
