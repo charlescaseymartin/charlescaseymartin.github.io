@@ -33,14 +33,13 @@ export default function CTA() {
 
           <div className='mx-auto text-center max-w-xl md:max-w-2xl relative'>
             <h1 className='text-3xl/tight sm:text-4xl/tight md:text-5xl/tight font-bold text-heading-1'>
-              Quick Start your
-              <ColourfulText text='Strategic Digital' />
-              Marketing Campaing
+              Ready to take your
+              <ColourfulText text='Digital Presence' />
+              to the Next Level?
             </h1>
 
             <Paragraph className={'pt-10'}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente
-              delectus architecto ullam earum
+              Contact us today for a free consultation and let us turn your vision into reality.
             </Paragraph>
 
             <div className='mx-auto max-w-md sm:max-w-xl pt-10'>

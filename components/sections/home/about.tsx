@@ -43,7 +43,7 @@ export default function About() {
 
         <div className='flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col'>
           <Title>
-            Unlocking the Power of Digital
+            Unlocking the Power of Digital Assets
           </Title>
           <Paragraph className='mt-8'>
             In this ever-evolving digital age, businesses need to stay ahead of the curve to remain competitive.
@@ -60,9 +60,9 @@ export default function About() {
             </Info>
 
             <Info title='Vision' icon={VisionIcon}>
-              {/* Building digital assets that out live ever-changing social media trends. */}
+              Helping more businesses see the true power of the web when used right.
               <br />
-              <LearnMoreLink href='/about#mission' />
+              <LearnMoreLink href='/about#vision' />
             </Info>
           </div>
         </div>
