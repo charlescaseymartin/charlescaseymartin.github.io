@@ -2,7 +2,7 @@
 
 import { createContext, useEffect, useState } from 'react'
 
-enum ThemeOptions {
+export enum ThemeOptions {
   light = 'light',
   dark = 'dark',
 }
@@ -13,6 +13,7 @@ type AppContextProviderType = {
 
 type AppContextType = {
   theme: ThemeOptions;
+  isDarkTheme: boolean;
   toggleTheme: () => void;
 } | null;
 
@@ -21,19 +22,24 @@ export const AppContext = createContext<AppContextType>(null);
 
 export function AppContextProvider({ children }: AppContextProviderType) {
   const [theme, setTheme] = useState<ThemeOptions>(ThemeOptions.light);
+  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false);
 
   const toggleTheme = () => {
-    if (theme === ThemeOptions.light) return setTheme(ThemeOptions.dark);
-    return setTheme(ThemeOptions.light);
+    if (theme === ThemeOptions.light) {
+      setIsDarkTheme(true);
+      return setTheme(ThemeOptions.dark);
+    }
+      setIsDarkTheme(false);
+      return setTheme(ThemeOptions.light);
   }
 
   useEffect(() => {
-    const appTheme = localStorage.getItem(StoredThemeName);
+    const storedTheme = localStorage.getItem(StoredThemeName);
     const docElement = document.documentElement;
     const darkThemedMediaQuery = window.matchMedia('(perfers-color-scheme: dark)').matches;
     const themeSwitchBtn = document.querySelector('[data-switch-theme]') as HTMLButtonElement;
 
-    if (appTheme === ThemeOptions.dark || !appTheme && darkThemedMediaQuery) {
+    if (storedTheme === ThemeOptions.dark || !storedTheme && darkThemedMediaQuery) {
       docElement.classList.add(ThemeOptions.dark);
       docElement.classList.remove(ThemeOptions.light);
       themeSwitchBtn.children[0].classList.add('hidden');
@@ -51,7 +57,7 @@ export function AppContextProvider({ children }: AppContextProviderType) {
   useEffect(() => console.log({ isDarkMode: theme }), [theme])
 
   return (
-    <AppContext.Provider value={{ theme, toggleTheme }}>
+    <AppContext.Provider value={{ theme, isDarkTheme, toggleTheme }}>
       {children}
     </AppContext.Provider>
   )

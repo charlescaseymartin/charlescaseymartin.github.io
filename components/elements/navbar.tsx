@@ -5,16 +5,11 @@ import NavItem from '../shared/navItem';
 import Container from '../shared/container';
 import BtnLink, { BtnLinkVariant } from '../shared/btnLink';
 import Logo from '../shared/logo';
-import { AppThemeContext } from '@/themeContext';
+import { AppContext, StoredThemeName, ThemeOptions } from '@/context';
 
 type NavbarLinkBaseType = {
   text: string;
   href: string;
-}
-
-enum AppThemeModes {
-  light = 'light',
-  dark = 'dark',
 }
 
 export default function Navbar() {
@@ -26,41 +21,39 @@ export default function Navbar() {
     { text: 'Blog', href: '/blog' },
   ]
   const [windowDoc, setWindowDoc] = useState<Document>();
-  const themeContext = useContext(AppThemeContext);
-  const appThemeStorgeItem = 'appTheme';
-
+  const appContext = useContext(AppContext);
 
   useEffect(() => { if (document) setWindowDoc(document) }, []);
 
   const onToggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    const appTheme = localStorage.getItem(appThemeStorgeItem);
-    if (windowDoc && themeContext) {
-      const { toggleDarkMode } = themeContext;
+    const storedTheme = localStorage.getItem(StoredThemeName);
+    if (windowDoc && appContext) {
+      const { toggleTheme } = appContext;
       const docElement = windowDoc.documentElement;
       const themeSwitch = document.querySelector('[data-switch-theme]') as HTMLButtonElement;
       themeSwitch.children[0].classList.toggle('hidden');
       themeSwitch.children[1].classList.toggle('hidden');
 
-      if (appTheme && appTheme === AppThemeModes.light) {
-        docElement.classList.toggle(AppThemeModes.dark);
-        localStorage.setItem(appThemeStorgeItem, AppThemeModes.dark);
-        toggleDarkMode(true);
+      if (storedTheme && storedTheme === ThemeOptions.light) {
+        docElement.classList.toggle(ThemeOptions.dark);
+        localStorage.setItem(StoredThemeName, ThemeOptions.dark);
+        toggleTheme();
       }
-      if (appTheme && appTheme === AppThemeModes.dark) {
-        docElement.classList.toggle(AppThemeModes.dark);
-        localStorage.setItem(appThemeStorgeItem, AppThemeModes.light);
-        toggleDarkMode(false);
+      if (storedTheme && storedTheme === ThemeOptions.dark) {
+        docElement.classList.toggle(ThemeOptions.dark);
+        localStorage.setItem(StoredThemeName, ThemeOptions.light);
+        toggleTheme();
       }
-      if (!appTheme && docElement.classList.contains(AppThemeModes.dark)) {
-        docElement.classList.toggle(AppThemeModes.dark);
-        localStorage.setItem(appThemeStorgeItem, AppThemeModes.light);
-        toggleDarkMode(false);
+      if (!storedTheme && docElement.classList.contains(ThemeOptions.dark)) {
+        docElement.classList.toggle(ThemeOptions.dark);
+        localStorage.setItem(StoredThemeName, ThemeOptions.light);
+        toggleTheme();
       }
-      if (!appTheme && !docElement.classList.contains(AppThemeModes.light)) {
-        docElement.classList.toggle(AppThemeModes.light);
-        localStorage.setItem(appThemeStorgeItem, AppThemeModes.dark);
-        toggleDarkMode(true);
+      if (!storedTheme && !docElement.classList.contains(ThemeOptions.light)) {
+        docElement.classList.toggle(ThemeOptions.light);
+        localStorage.setItem(StoredThemeName, ThemeOptions.dark);
+        toggleTheme();
       }
     }
   }
