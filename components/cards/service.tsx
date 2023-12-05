@@ -2,7 +2,7 @@
 
 import { useContext } from 'react';
 import Paragraph from '../shared/paragraph';
-import { AppThemeContext } from '@/app/context/themeContext';
+import { AppThemeContext } from '@/themeContext';
 import BtnLink from '../shared/btnLink';
 
 export type ServiceItemType = {

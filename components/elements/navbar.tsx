@@ -5,7 +5,7 @@ import NavItem from '../shared/navItem';
 import Container from '../shared/container';
 import BtnLink, { BtnLinkVariant } from '../shared/btnLink';
 import Logo from '../shared/logo';
-import { AppThemeContext } from '@/app/context/themeContext';
+import { AppThemeContext } from '@/themeContext';
 
 type NavbarLinkBaseType = {
   text: string;

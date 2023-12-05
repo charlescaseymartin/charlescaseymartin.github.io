@@ -1,7 +1,7 @@
 'use client';
 
 import { useContext } from 'react';
-import { AppThemeContext } from '@/app/context/themeContext';
+import { AppThemeContext } from '@/themeContext';
 import Button from '@/components/shared/button';
 import Container from '@/components/shared/container';
 import Paragraph from '@/components/shared/paragraph';

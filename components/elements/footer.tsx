@@ -7,7 +7,7 @@ import Container from '../shared/container';
 import FooterNav, { FooterNavItem } from '../shared/footerNav';
 import Paragraph from '../shared/paragraph';
 import Logo from '../shared/logo';
-import { AppThemeContext } from '@/app/context/themeContext';
+import { AppThemeContext } from '@/themeContext';
 
 
 const footerNav1: FooterNavItem[] = [

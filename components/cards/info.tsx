@@ -1,7 +1,7 @@
 'use client';
 
 import { useContext } from 'react';
-import { AppThemeContext } from '@/app/context/themeContext';
+import { AppThemeContext } from '@/themeContext';
 import Paragraph from '../shared/paragraph';
 
 
